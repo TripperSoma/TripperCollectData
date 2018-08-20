@@ -33,7 +33,7 @@ def xml_to_item_list(xml_string,data_sid):
             item_list.append(data_sid)
             item_list.append(item.find('addr').text)
             item_list.append(item.find('dataTitle').text)
-            item_list.append(item.find('dataContent').text)
+            #item_list.append(item.find('dataContent').text)
             item_list.append(item.find('wgsx').text)
             item_list.append(item.find('wgsy').text)
             result.append(item_list)
@@ -56,33 +56,30 @@ import csv
 
 
 
-def numpy_to_csv(item_numpy_list):
-    df = pd.DataFrame(item_numpy_list)
-    df.to_csv("tmp.csv",encoding='utf-8', header = False, index = False)
-
-total_list=[]
-def item_writer(data_sid):
+def numpy_to_csv(item_list):
+##    pda = pd.DataFrame(item_list)
+##    pda.to_csv("mylist.csv")
+##    
+    #df = pd.DataFrame(item_numpy_list)
+    #print(item_numpy_list)
+    #df.to_csv("tmp.csv",encoding='utf8', header = False, index = False)
     
+    f = open('output.csv', 'w', encoding='utf8', newline='')
+    wr = csv.writer(f)
+    for sublist in item_list:
+        for line in sublist:
+            wr.writerow(line)
+    f.close()
+    
+total_list=[]
+                    
+def item_writer(data_sid):
     xml_string = query_sender(data_sid)
     item_list = xml_to_item_list(xml_string,data_sid)
-    item_numpy_list = np.array(item_list)
-    #print(item_numpy_list)
-    #total_list.append(item_numpy_list)
-    df = pd.DataFrame(item_numpy_list)
-    total_list.append(df)
-    #numpy_to_csv(item_numpy_list)
+    total_list.append(item_list)
 
-
-
-for i in range(2):
+for i in range(4):
     item_writer(i)
 
 numpy_to_csv(total_list)
-print(total_list)
-##print(item_list)
-##for time_code in time_code_list:
-##    print(time_code)
-##    time_code_str = str(time_code)
-##    path = './test'
-##    item_writer(data_sid)
 
