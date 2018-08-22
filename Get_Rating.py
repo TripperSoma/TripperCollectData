@@ -4,7 +4,7 @@ import ssl
 import json
  
  
-name = quote('')   
+name = quote('seoul')   
 API_KEY='AIzaSyCO8Qwx7jM2MDSgujwE-l9lYbwgTvgCUc0'
 
 def build_addr(name):
@@ -34,6 +34,7 @@ def seperate_addr(addr):
     return place_id
 
 def get_place_id(addr):
+    addr_detail= addr['results'][0]
     place_id=addr_detail['place_id']
     return place_id
 
