@@ -4,22 +4,16 @@ import ssl
 import json
  
  
-name = quote('서울특별시 서초구 서초2동 서초대로74길 14')   
+name = quote('')   
 API_KEY='AIzaSyCO8Qwx7jM2MDSgujwE-l9lYbwgTvgCUc0'
 
 def build_addr(name):
-    
-    #example file
     url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+ name+',rating' +'&key='+API_KEY+'&language=ko'
- 
     req = Request(url, headers={ 'X-Mashape-Key': API_KEY })
     ssltext = ssl.SSLContext(ssl.PROTOCOL_TLSv1) 
     company_addr_json = urlopen(req, context=ssltext).read().decode('utf8')
     addr = json.loads(company_addr_json)
     return addr
-##    addr_detail = addr['results'][0]
-##    #addd=addr['ratings']
-##    print(addr_detail)
 
 def seperate_addr(addr):
 
@@ -39,6 +33,9 @@ def seperate_addr(addr):
     place_id = addr_detail['place_id']
     return place_id
 
+def get_place_id(addr):
+    place_id=addr_detail['place_id']
+    return place_id
 
 def get_rating(place_id):
     rating_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+place_id+'&fields=name,rating,formatted_phone_number&key=AIzaSyCO8Qwx7jM2MDSgujwE-l9lYbwgTvgCUc0'
@@ -49,7 +46,7 @@ def get_rating(place_id):
     addr_rating= addr['result']['rating']
     return addr_rating
 
-print(get_rating(seperate_addr(build_addr(name))))
+print(get_rating(get_place_id(build_addr(name))))
 ##print(addr)
 ##print(place_id)
 ##print(rating_url)
