@@ -4,7 +4,7 @@ import ssl
 import json
  
  
-name = quote('seoul')   
+name = quote('부산시')   
 API_KEY='AIzaSyCO8Qwx7jM2MDSgujwE-l9lYbwgTvgCUc0'
 
 def build_addr(name):
@@ -44,9 +44,17 @@ def get_rating(place_id):
     ssltext = ssl.SSLContext(ssl.PROTOCOL_TLSv1) 
     company_addr_json = urlopen(req, context=ssltext).read().decode('utf8')
     addr = json.loads(company_addr_json)
-    addr_rating= addr['result']['rating']
+    print(addr)
+    try:
+        addr_rating= addr['result']['rating']
+    except KeyError :
+        addr_rating = 0
+        
     return addr_rating
 
+
+print(build_addr(name))
+print(get_place_id(build_addr(name)))
 print(get_rating(get_place_id(build_addr(name))))
 ##print(addr)
 ##print(place_id)
