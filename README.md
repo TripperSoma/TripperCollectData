@@ -16,4 +16,5 @@
 
 
 #How To Get Data
-python3 xml_to_list.py getLuxuryTourDetail
+python3 
+>> xml_to_list.py getLuxuryTourDetail
