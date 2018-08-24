@@ -213,8 +213,8 @@ if __name__ == "__main__":
         max_len=300
         num=8
         for i in range(max_len):
-            item_writer(i,num)
-        getRestaurantDetail('getLuxuryTourDetail',total_list)
+            item_writer('getLuxuryTourDetail',i,num)
+        getRestaurantDetail(total_list)
 
     
 
