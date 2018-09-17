@@ -41,7 +41,7 @@ import xml.etree.ElementTree as ET
 
 def getThemeTourDetail(item_list):
     #505
-    f = open('getThemeTourDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getThemeTourDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -49,7 +49,7 @@ def getThemeTourDetail(item_list):
     f.close()
 def getExperienceTourDetail(item_list):
     #18629
-    f = open('getExperienceTourDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getExperienceTourDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -57,7 +57,7 @@ def getExperienceTourDetail(item_list):
     f.close()
 def getWalkingTourDetail(item_list):
     #461
-    f = open('getWalkingTourDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getWalkingTourDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -66,7 +66,7 @@ def getWalkingTourDetail(item_list):
 
 def getTouristAttDetail(item_list):
     #485
-    f = open('getTouristAttDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getTouristAttDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -74,7 +74,7 @@ def getTouristAttDetail(item_list):
     f.close()
 def getShoppingAttrDetail(item_list):
     #914
-    f = open('getShoppingAttrDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getShoppingAttrDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -83,7 +83,7 @@ def getShoppingAttrDetail(item_list):
 
 def getSportsDetail(item_list):
     #10028
-    f = open('getSportsDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getSportsDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -91,14 +91,14 @@ def getSportsDetail(item_list):
     f.close()
 def getRestaurantDetail(item_list):
     #10028
-    f = open('getRestaurantDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getRestaurantDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
             wr.writerow(line)
     f.close()
 def getLuxuryTourDetail(item_list):
-    f = open('getLuxuryTourDetail.csv', 'w', encoding='utf8', newline='')
+    f = open('getLuxuryTourDetail.csv', 'w', encoding='euc_kr', newline='')
     wr = csv.writer(f)
     for sublist in item_list:
         for line in sublist:
@@ -210,7 +210,7 @@ if __name__ == "__main__":
         item_writer('getRestaurantDetail',461,num)
         getRestaurantDetail(total_list)
     elif(sys.argv[1]=='getLuxuryTourDetail'):
-        max_len=300
+        max_len=3
         num=8
         for i in range(max_len):
             item_writer('getLuxuryTourDetail',i,num)
