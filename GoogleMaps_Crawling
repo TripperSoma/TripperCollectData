@@ -7,7 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 browser = webdriver.Chrome('/Users/jhmon/Downloads/chromedriver')
-browser.get('hhttps://www.google.com/maps/search/%EB%82%A8%EC%82%B0%EC%BC%80%EC%9D%B4%EB%B8%94%EC%B9%B4/@37.5565401,126.981908,17z/data=!3m1!4b1')
+browser.get('https://www.google.com/maps/place/Embassy+Manyata+Business+Park/@13.0499862,77.6175589,17z/data=!3m1!4b1!4m10!1m2!2m1!1smanyata+tech+park+banglore!3m6!1s0x3bae176ddc662065:0x57b2874f9023bb8!8m2!3d13.049981!4d77.6197476!9m1!1b1')
 
 actions = ActionChains(browser)
 
